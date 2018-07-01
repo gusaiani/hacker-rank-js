@@ -1,0 +1,15 @@
+{
+  "name": "hacker-rank-in-js",
+  "version": "1.0.0",
+  "description": "Hacker Rank’s Tests in JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Gustavo Saiani ",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^23.2.0"
+  }
+}
+
