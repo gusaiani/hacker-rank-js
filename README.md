@@ -1,4 +1,4 @@
-[ ![Codeship Status for gusaiani/js-cracking-coding-interview](https://app.codeship.com/projects/032c61d0-0f09-0135-dad5-2604a1807cee/status?branch=master)](https://app.codeship.com/projects/216072)
+[ ![Codeship Status for gusaiani/hacker-rank-js](https://app.codeship.com/projects/d9bd2400-5ef2-0136-3e76-1eff8a8c1d40/status?branch=master)](https://app.codeship.com/projects/296089)
 
 # Hacker Rank’s Algorithm Challenges
 
