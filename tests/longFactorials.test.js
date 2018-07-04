@@ -1,6 +1,10 @@
 const longFactorials = require('../longFactorials');
 
-test.only('A longFactorials test', () => {
+test('A longFactorials test', () => {
+  expect(longFactorials(1)).toEqual(1);
+});
+
+test('A longFactorials test', () => {
   expect(longFactorials(4)).toEqual(24);
 });
 
