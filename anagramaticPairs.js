@@ -29,11 +29,4 @@ function countAnagramaticPairs(str) {
   return pairs
 }
 
-function areAnagrams(arr1, arr2) {
-  arr1.sort()
-  arr2.sort()
-
-  return arr1.join('') == arr2.join('')
-}
-
 module.exports = anagramaticPairs;
