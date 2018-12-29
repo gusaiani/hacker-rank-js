@@ -9,7 +9,7 @@
   "author": "Gustavo Saiani ",
   "license": "MIT",
   "dependencies": {
-    "jest": "^23.2.0"
+    "jest": "^23.6.0"
   }
 }
 
