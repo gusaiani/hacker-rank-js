@@ -6,8 +6,7 @@ function designerPDFViewer(charHeights, word) {
   const tallestChar = word.split('').reduce((acc, char) => {
     const charPosition = char.charCodeAt(0) - 97
     const charHeight = charHeightArray[charPosition]
-
-    return (charHeight > acc) ? charHeight : acc
+    return Math.max(charHeight, acc)
   }, 0)
 
   return tallestChar * word.length
