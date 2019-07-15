@@ -1,4 +1,4 @@
-https://www.hackerrank.com/challenges/sherlock-and-squares/problem
+// https://www.hackerrank.com/challenges/sherlock-and-squares/problem
 function sherlockAndSquares(init, final) {
   let numberOfSquares = 0
   let smallestSquare = 0
