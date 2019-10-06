@@ -2,8 +2,12 @@
 function twoPluses(grid) {
   const hash = buildHash(grid)
   const pluses = compilePluses(hash)
+  const largestPlusesNotTouchingEachOther =
+    findLargestPlusesNotTouchingOneAnother(pluses)
 
-  return 3
+  if (!largestPlusesNotTouchingEachOther) return 0
+
+  return largestPlusesNotTouchingEachOther
 }
 
 function buildHash(grid) {
@@ -25,45 +29,138 @@ function compilePluses(hash) {
   let pluses = []
 
   Object.keys(hash).forEach(firstKey => {
-    // console.log('Aqui, firstKey', firstKey);
     Object.keys(hash[firstKey]).forEach(secondKey => {
-      // console.log('Aqui, secondKey', secondKey);
       let hasOneMoreUnitofDimension = true
       let unitOfDimension = 1
+      firstKey = parseInt(firstKey)
+      secondKey = parseInt(secondKey)
 
       while (hasOneMoreUnitofDimension) {
-        if (checkUnitOfDimension(hash, firstKey, secondKey, unitOfDimension + 1)) {
+        pluses =
+          addPlusToList([firstKey, secondKey, unitOfDimension], pluses)
+
+        if (checkUnitOfDimension(hash, firstKey, secondKey, unitOfDimension)) {
           unitOfDimension++
         } else {
           hasOneMoreUnitofDimension = false
         }
       }
 
-      console.log(firstKey, secondKey, unitOfDimension);
-      pluses.push([firstKey, secondKey, unitOfDimension])
-      // console.log({pluses})
     })
   })
 
   return pluses
 }
 
+function addPlusToList(plus, pluses) {
+  // debugger
+  if (!pluses.length) return [plus]
+
+  const plusDimension = plus[2]
+  let indexToInject = undefined
+  let currentIndex = 0
+
+  while (!indexToInject && pluses[currentIndex]) {
+    const plusDimensionToCompare = pluses[currentIndex][2]
+
+    if (plusDimension > plusDimensionToCompare) {
+      indexToInject = currentIndex
+    }
+
+    currentIndex++
+  }
+
+
+  if (indexToInject) {
+    pluses.splice(indexToInject - 1, 0, plus).join()
+  } else {
+    pluses.push(plus)
+  }
+
+  return pluses
+}
+
 function checkUnitOfDimension(hash, firstKey, secondKey, unit) {
-  return checkIfGood(hash, firstKey - unit, secondKey)
-    && checkIfGood(hash, firstKey + unit, secondKey)
-    && checkIfGood(hash, firstKey, secondKey - unit)
-    && checkIfGood(hash, firstKey, secondKey + unit)
+  return checkIfGood(hash, firstKey - unit, secondKey) &&
+    checkIfGood(hash, firstKey + unit, secondKey) &&
+    checkIfGood(hash, firstKey, secondKey - unit) &&
+    checkIfGood(hash, firstKey, secondKey + unit)
 }
 
 function checkIfGood(hash, firstKey, secondKey) {
+  return hash[firstKey] && hash[firstKey][secondKey]
+}
 
+function findLargestPlusesNotTouchingOneAnother(pluses) {
+  let largestArea = 0
+
+  for (let i = 0; i < pluses.length; i++) {
+    const firstPlus = pluses[i]
+    const firstPlusArea = convertDimensionToArea(firstPlus)
+    if (largestArea > (firstPlusArea * firstPlusArea)) {
+      continue
+    }
+    for (let j = i + 1; j < pluses.length; j++) {
+      const doPlusesTouch = checkIfPlusesTouch(pluses[i], pluses[j])
+      if (!doPlusesTouch) {
+          const area = calculateArea(pluses[i], pluses[j])
+        if (area > largestArea) {
+          if (area === 25) {
+            console.log('-'.repeat(15))
+            console.log(pluses[i], pluses[j]);
+            console.log('-'.repeat(15))
+          }
+          largestArea = area
+        }
+      }
+    }
+  }
+
+  return largestArea
+}
+
+
+function checkIfPlusesTouch(firstPlus, secondPlus) {
+  let minDistance = (firstPlus[2] - 1) + (secondPlus[2] - 1)
+  if (
+    (firstPlus[0] === secondPlus[0]) &&
+    Math.abs(firstPlus[1] - secondPlus[1]) < minDistance
+  ) {
+    return true
+  }
+
+  if (
+    (firstPlus[1] === secondPlus[1]) &&
+    Math.abs(firstPlus[0] - secondPlus[0]) < minDistance
+  ) {
+    return true
+  }
+
+  minDistance = (firstPlus[2] - 1) + (secondPlus[2] - 2)
+
+  if (
+    Math.abs(firstPlus[1] - secondPlus[1]) < minDistance &&
+    Math.abs(firstPlus[0] - secondPlus[0]) < minDistance
+  ) {
+    return true
+  }
+
+  return false
+}
+
+function calculateArea(firstPlus, secondPlus) {
+  const firstDimension = firstPlus[2]
+  const secondDimension = secondPlus[2]
+
+  const firstArea = convertDimensionToArea(firstDimension)
+  const secondArea = convertDimensionToArea(secondDimension)
+
+  return firstArea * secondArea
+}
+
+function convertDimensionToArea(dimension) {
+  if (dimension === 1) return 1
+  return ((dimension - 1) * 4) + 1
 }
 
 module.exports = twoPluses
-
-// Corner cases:
-// No good tiles: area 0.
-//
-// No pluses larger than point
-//    Good tiles only on top row, or bottom row, or first column or last column.
-//      If 2 good tiles, 1 × 1 is 1.
