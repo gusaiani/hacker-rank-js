@@ -91,3 +91,39 @@ test('Should return 5', () => {
 
   expect(twoPluses(grid)).toEqual(5);
 })
+
+test('Should return 221', () => {
+  const grid = [
+    'GGBBGBBGBBG',
+    'GGBBGBBGBBG',
+    'GGGGGGGGGGG',
+    'GGBBGBBGBBG',
+    'GGGGGGGGGGG',
+    'GGBBGBBGBBG',
+    'GGBBGBBGBBG',
+    'GGGGGGGGGGG',
+    'GGBBGBBGBBG',
+    'GGGGGGGGGGG',
+    'GGBBGBBGBBG',
+    'GGBBGBBGBBG',
+    'GGBBGBBGBBG',
+  ]
+
+  expect(twoPluses(grid)).toEqual(221);
+})
+
+test('Should return 45', () => {
+  const grid = [
+    'GGGGGGGGGG',
+    'GBBBBBBGGG',
+    'GGGGGGGGGG',
+    'GGGGGGGGGG',
+    'GBBBBBBGGG',
+    'GGGGGGGGGG',
+    'GBBBBBBGGG',
+    'GBBBBBBGGG',
+    'GGGGGGGGGG'
+  ]
+
+  expect(twoPluses(grid)).toEqual(45);
+})

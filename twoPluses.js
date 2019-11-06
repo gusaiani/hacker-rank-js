@@ -45,7 +45,6 @@ function compilePluses(hash) {
           hasOneMoreUnitofDimension = false
         }
       }
-
     })
   })
 
@@ -96,7 +95,7 @@ function findLargestPlusesNotTouchingOneAnother(pluses) {
 
   for (let i = 0; i < pluses.length; i++) {
     const firstPlus = pluses[i]
-    const firstPlusArea = convertDimensionToArea(firstPlus)
+    const firstPlusArea = convertDimensionToArea(firstPlus[2])
     if (largestArea > (firstPlusArea * firstPlusArea)) {
       continue
     }
@@ -105,11 +104,6 @@ function findLargestPlusesNotTouchingOneAnother(pluses) {
       if (!doPlusesTouch) {
           const area = calculateArea(pluses[i], pluses[j])
         if (area > largestArea) {
-          if (area === 25) {
-            console.log('-'.repeat(15))
-            console.log(pluses[i], pluses[j]);
-            console.log('-'.repeat(15))
-          }
           largestArea = area
         }
       }
@@ -119,33 +113,37 @@ function findLargestPlusesNotTouchingOneAnother(pluses) {
   return largestArea
 }
 
-
 function checkIfPlusesTouch(firstPlus, secondPlus) {
-  let minDistance = (firstPlus[2] - 1) + (secondPlus[2] - 1)
-  if (
-    (firstPlus[0] === secondPlus[0]) &&
-    Math.abs(firstPlus[1] - secondPlus[1]) < minDistance
-  ) {
-    return true
+  const verticalCenterDistance = Math.abs(firstPlus[0] - secondPlus[0]) - 1
+  const horizontalCenterDistance = Math.abs(firstPlus[1] - secondPlus[1]) - 1
+  const firstPlusSide = firstPlus[2] - 1
+  const secondPlusSide = secondPlus[2] - 1
+  const maxSide = Math.max(firstPlusSide, secondPlusSide)
+
+  if (verticalCenterDistance === 0) {
+    if (horizontalCenterDistance < (firstPlusSide + secondPlusSide)) {
+      return true
+    }
   }
 
-  if (
-    (firstPlus[1] === secondPlus[1]) &&
-    Math.abs(firstPlus[0] - secondPlus[0]) < minDistance
-  ) {
-    return true
+  if (horizontalCenterDistance === 0) {
+    if (verticalCenterDistance < (firstPlusSide + secondPlusSide)) {
+      return true
+    }
   }
 
-  minDistance = (firstPlus[2] - 1) + (secondPlus[2] - 2)
-
-  if (
-    Math.abs(firstPlus[1] - secondPlus[1]) < minDistance &&
-    Math.abs(firstPlus[0] - secondPlus[0]) < minDistance
-  ) {
-    return true
+  if (verticalCenterDistance > (firstPlusSide + secondPlusSide)) {
+    return false
   }
 
-  return false
+  if (horizontalCenterDistance > (firstPlusSide + secondPlusSide)) {
+    return false
+  }
+
+  if (verticalCenterDistance >= maxSide) return false
+  if (horizontalCenterDistance >= maxSide) return false
+
+  return true
 }
 
 function calculateArea(firstPlus, secondPlus) {
