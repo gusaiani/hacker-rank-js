@@ -127,3 +127,20 @@ test('Should return 45', () => {
 
   expect(twoPluses(grid)).toEqual(45);
 })
+
+test('Should return 85', () => {
+  const grid = [
+    'BBBBBGGBGG',
+    'GGGGGGGGGG',
+    'GGGGGGGGGG',
+    'BBBBBGGBGG',
+    'BBBBBGGBGG',
+    'GGGGGGGGGG',
+    'BBBBBGGBGG',
+    'GGGGGGGGGG',
+    'BBBBBGGBGG',
+    'GGGGGGGGGG'
+  ]
+
+  expect(twoPluses(grid)).toEqual(85);
+})
