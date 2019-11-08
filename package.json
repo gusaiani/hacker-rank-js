@@ -4,7 +4,9 @@
   "description": "Hacker Rank’s Tests in JS",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:debug": "node --inspect node_modules/.bin/jest --runInBand",
+    "test:debug:watch": "node --inspect node_modules/.bin/jest --watch --runInBand"
   },
   "author": "Gustavo Saiani ",
   "license": "MIT",
