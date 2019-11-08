@@ -112,39 +112,19 @@ function findLargestPlusesNotTouchingOneAnother(pluses) {
   return largestArea
 }
 
-function arraysMatch (arr1, arr2) {
-	// Check if the arrays are the same length
-	if (arr1.length !== arr2.length) return false;
-
-	// Check if all items exist and are in the same order
-	for (var i = 0; i < arr1.length; i++) {
-		if (arr1[i] !== arr2[i]) return false;
-	}
-
-	// Otherwise, return true
-	return true;
-};
-
 function checkIfPlusesTouch(firstPlus, secondPlus) {
-  if (arraysMatch(firstPlus, [ 5, 5, 5 ]) && arraysMatch(secondPlus, [1, 8, 2])) {
-    // debugger
-  }
   const verticalCenterDistance = Math.abs(firstPlus[0] - secondPlus[0])
   const horizontalCenterDistance = Math.abs(firstPlus[1] - secondPlus[1])
   const firstPlusSide = firstPlus[2] - 1
   const secondPlusSide = secondPlus[2] - 1
-  const minSide = Math.min(firstPlusSide, secondPlusSide)
+  const maxSide = Math.max(firstPlusSide, secondPlusSide)
 
   if (verticalCenterDistance === 0) {
-    if (horizontalCenterDistance < (firstPlusSide + secondPlusSide)) {
-      return true
-    }
+    return horizontalCenterDistance < (firstPlusSide + secondPlusSide)
   }
 
   if (horizontalCenterDistance === 0) {
-    if (verticalCenterDistance < (firstPlusSide + secondPlusSide)) {
-      return true
-    }
+    return verticalCenterDistance < (firstPlusSide + secondPlusSide)
   }
 
   if (verticalCenterDistance > (firstPlusSide + secondPlusSide)) {
@@ -155,8 +135,7 @@ function checkIfPlusesTouch(firstPlus, secondPlus) {
     return false
   }
 
-  if (verticalCenterDistance > minSide) return false
-  if (horizontalCenterDistance > minSide) return false
+  if (verticalCenterDistance >= maxSide && horizontalCenterDistance >= maxSide) return false
 
   return true
 }
