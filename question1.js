@@ -8,19 +8,22 @@
 * getChange(5, 0.99) // should return [1,0,0,0,0,4]
 */
 function getChange(money, price) {
-  const change = (money * 100 - price * 100)
+  const change = money * 100 - price * 100
   const coins = [100, 50, 25, 10, 5, 1]
 
-  const {finalChange, changeCoins} = coins.reduce((acc, coinType) => {
-    const newCoins = Math.floor(acc.change / coinType)
-    const remainingChange = acc.change % coinType
-    acc.change = remainingChange
-    acc.changeCoins.push(newCoins)
+  const {changeCoins} = coins.reduce(
+    (acc, coinType) => {
+      const newCoins = Math.floor(acc.change / coinType)
+      const remainingChange = acc.change % coinType
+      acc.change = remainingChange
+      acc.changeCoins.push(newCoins)
 
-    return acc
-  }, {change, changeCoins: []})
+      return acc
+    },
+    {change, changeCoins: []},
+  )
 
-  return changeCoins.reverse();
+  return changeCoins.reverse()
 }
 
 module.exports = getChange

@@ -1,4 +1,4 @@
-const sherlockAndSquares = require('../sherlockAndSquares');
+const sherlockAndSquares = require('../sherlockAndSquares')
 
 describe('A sherlockAndSquares test', () => {
   it('should return 2 for values 3 and 9', () => {

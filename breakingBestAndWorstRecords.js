@@ -5,7 +5,7 @@ function breakingBestAndWorstRecords(arr) {
     max: initialScore,
     min: initialScore,
     maxCount: 0,
-    minCount: 0
+    minCount: 0,
   }
 
   const {maxCount, minCount} = arr.reduce((acc, item) => {
@@ -22,7 +22,7 @@ function breakingBestAndWorstRecords(arr) {
     return acc
   }, init)
 
-  return `${maxCount} ${minCount}`;
+  return `${maxCount} ${minCount}`
 }
 
-module.exports = breakingBestAndWorstRecords;
+module.exports = breakingBestAndWorstRecords

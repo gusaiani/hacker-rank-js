@@ -24,10 +24,10 @@ function acmTeam(arr) {
 function getCommon(array1, array2) {
   let count = 0
   for (let i = 0; i < array1.length; i++) {
-    if (array1[i] == 1 || array2[i] == 1) count ++
+    if (array1[i] == 1 || array2[i] == 1) count++
   }
 
   return count
 }
 
-module.exports = acmTeam;
+module.exports = acmTeam

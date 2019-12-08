@@ -3,22 +3,24 @@
  */
 
 function compareTheTriplets(a, b) {
-  const aArray = toInts(a);
-  const bArray = toInts(b);
+  const aArray = toInts(a)
+  const bArray = toInts(b)
 
-  let aScore = 0;
-  let bScore = 0;
+  let aScore = 0
+  let bScore = 0
 
   for (let i = 0; i < aArray.length; i++) {
-    if (aArray[i] > bArray[i]) aScore++;
-    else if (aArray[i] < bArray[i]) bScore++;
+    if (aArray[i] > bArray[i]) aScore++
+    else if (aArray[i] < bArray[i]) bScore++
   }
 
-  return aScore + ' ' + bScore;
+  return aScore + ' ' + bScore
 }
 
 function toInts(str) {
-  return str.split(' ').map(item => {return parseInt(item)})
+  return str.split(' ').map(item => {
+    return parseInt(item)
+  })
 }
 
-module.exports = compareTheTriplets;
+module.exports = compareTheTriplets

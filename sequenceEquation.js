@@ -27,8 +27,7 @@ function sequenceEquation(arr) {
   const hashTable = arr.reduce((acc, entry, index) => {
     acc[entry] = index + 1
     return acc
-  },{})
-
+  }, {})
 
   for (let i = 1; i <= arr.length; i++) {
     const iPosition = hashTable[i]

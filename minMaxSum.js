@@ -5,20 +5,20 @@ function minMaxSum(arr) {
   const initial = {
     sum: 0,
     min: Infinity,
-    max: -Infinity
+    max: -Infinity,
   }
 
   const final = arr.reduce((acc, item) => {
-    acc.sum += item;
+    acc.sum += item
     if (item < acc.min) acc.min = item
     if (item > acc.max) acc.max = item
     return acc
-  }, initial);
+  }, initial)
 
-  const minSum = final.sum - final.max;
-  const maxSum = final.sum - final.min;
+  const minSum = final.sum - final.max
+  const maxSum = final.sum - final.min
 
   return minSum + ' ' + maxSum
 }
 
-module.exports = minMaxSum;
+module.exports = minMaxSum

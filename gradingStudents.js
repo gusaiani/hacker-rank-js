@@ -7,8 +7,8 @@ function gradingStudents(arr) {
   return arr.map(item => {
     if (item <= failingGrade) return item
     if (item % 5 < 3) return item
-    return (item + (5 - (item % 5)))
+    return item + (5 - (item % 5))
   })
 }
 
-module.exports = gradingStudents;
+module.exports = gradingStudents

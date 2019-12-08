@@ -2,7 +2,6 @@ function electronicsShop(keyboards, drives, budget) {
   let maxPrice = -1
 
   for (let i = 0; i < keyboards.length; i++) {
-
     for (let j = 0; j < drives.length; j++) {
       const pairCost = keyboards[i] + drives[j]
 
@@ -12,7 +11,7 @@ function electronicsShop(keyboards, drives, budget) {
     }
   }
 
-  return maxPrice;
+  return maxPrice
 }
 
-module.exports = electronicsShop;
+module.exports = electronicsShop

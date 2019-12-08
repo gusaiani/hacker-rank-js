@@ -1,6 +1,5 @@
 function divisibleSumPairs(arrLength, sum, arr) {
-
-  let sumPairs = 0;
+  let sumPairs = 0
 
   for (let i = 0; i < arrLength; i++) {
     for (let j = i + 1; j < arrLength; j++) {
@@ -10,7 +9,7 @@ function divisibleSumPairs(arrLength, sum, arr) {
     }
   }
 
-  return sumPairs;
+  return sumPairs
 }
 
-module.exports = divisibleSumPairs;
+module.exports = divisibleSumPairs

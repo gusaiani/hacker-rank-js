@@ -4,7 +4,7 @@ function pickingNumbersHashTable(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     if (hashTable[arr[i]]) {
-      hashTable[arr[i]] = hashTable[arr[i]] + 1;
+      hashTable[arr[i]] = hashTable[arr[i]] + 1
     } else {
       hashTable[arr[i]] = 1
     }
@@ -18,7 +18,7 @@ function pickingNumbersHashTable(arr) {
     adjacents.forEach(adjacentKey => {
       const currentCount = hashTable[key]
       const adjacentCount = hashTable[adjacentKey]
-      if (adjacentCount && (currentCount + adjacentCount > maxSequenceLength)) {
+      if (adjacentCount && currentCount + adjacentCount > maxSequenceLength) {
         maxSequenceLength = currentCount + adjacentCount
       }
     })
@@ -27,4 +27,4 @@ function pickingNumbersHashTable(arr) {
   return maxSequenceLength
 }
 
-module.exports = pickingNumbersHashTable;
+module.exports = pickingNumbersHashTable

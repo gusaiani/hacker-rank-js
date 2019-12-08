@@ -8,4 +8,4 @@ function longFactorials(int, cache = []) {
   return longFactorials(int, cache)
 }
 
-module.exports = longFactorials;
+module.exports = longFactorials

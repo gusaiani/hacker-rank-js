@@ -5,15 +5,15 @@ function makingAnagrams(str1, str2) {
 
   while (arr1.length || arr2.length) {
     if (arr1.length == 0) {
-      deletions += arr2.length;
-      break;
+      deletions += arr2.length
+      break
     }
     if (arr2.length == 0) {
-      deletions += arr1.length;
-      break;
+      deletions += arr1.length
+      break
     }
 
-    if(arr1[0] == arr2[0]) {
+    if (arr1[0] == arr2[0]) {
       arr1.shift()
       arr2.shift()
     } else if (arr1[0] < arr2[0]) {
@@ -25,11 +25,15 @@ function makingAnagrams(str1, str2) {
     }
   }
 
-  return deletions;
+  return deletions
 }
 
 function makeSortedArray(str) {
-  return str.split(" ").join('').split('').sort()
+  return str
+    .split(' ')
+    .join('')
+    .split('')
+    .sort()
 }
 
-module.exports = makingAnagrams;
+module.exports = makingAnagrams

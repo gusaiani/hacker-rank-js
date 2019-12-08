@@ -3,7 +3,7 @@ function arrayLeftRotations(arr, rotations) {
     arr.push(arr.shift())
   }
 
-  return arr;
+  return arr
 }
 
-module.exports = arrayLeftRotations;
+module.exports = arrayLeftRotations

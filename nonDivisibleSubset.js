@@ -17,7 +17,7 @@ function nonDivisibleSubset(divisor, arr) {
     const remainder = parseInt(Object.keys(remainders)[i])
     const amount = remainders[remainder]
 
-    if ((remainder == 0) || (divisor / remainder == 2)) {
+    if (remainder == 0 || divisor / remainder == 2) {
       extra++
       continue
     }
@@ -27,20 +27,23 @@ function nonDivisibleSubset(divisor, arr) {
     if (complementaryRemainderAmount === undefined) {
       total += 2 * amount
     } else {
-      total += (amount > complementaryRemainderAmount) ?
-        amount : complementaryRemainderAmount
+      total +=
+        amount > complementaryRemainderAmount
+          ? amount
+          : complementaryRemainderAmount
     }
   }
 
-  return (total / 2) + extra
+  return total / 2 + extra
 }
 
+/*eslint-disable */
 function inefficientNonDivisibleSubset(divisor, arr) {
   let pairs = []
   let longestPair = 0
 
-  for(let i = 0; i < arr.length; i++) {
-    for(let j = i + 1; j < arr.length; j++) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
       if ((arr[i] + arr[j]) % divisor != 0) {
         pairs.push([arr[i], arr[j]])
       }
@@ -50,19 +53,19 @@ function inefficientNonDivisibleSubset(divisor, arr) {
   if (pairs.length == 0) return 0
   console.log({pairs})
 
-  for(let i = 0; i < pairs.length; i++) {
+  for (let i = 0; i < pairs.length; i++) {
     let currentSet = pairs[i]
 
-    for(let j = i + 1; j < pairs.length; j++) {
-      for(let k = 0; k <= 1; k++) {
+    for (let j = i + 1; j < pairs.length; j++) {
+      for (let k = 0; k <= 1; k++) {
         if (currentSet.indexOf(pairs[j][k]) == -1) {
           let areAllNotDivisible = true
-          for(let l = 0; l < currentSet.length; l++) {
+          for (let l = 0; l < currentSet.length; l++) {
             console.log({currentSet})
-            console.log('pairs[j][k]', pairs[j][k]);
-            console.log('currentSet[l]', currentSet[l]);
+            console.log('pairs[j][k]', pairs[j][k])
+            console.log('currentSet[l]', currentSet[l])
             if ((pairs[j][k] + currentSet[l]) % divisor == 0) {
-              console.log('aqui');
+              console.log('aqui')
               areAllNotDivisible = false
               continue
             }
@@ -82,5 +85,6 @@ function inefficientNonDivisibleSubset(divisor, arr) {
 
   return longestPair
 }
+/*eslint-enable */
 
-module.exports = nonDivisibleSubset;
+module.exports = nonDivisibleSubset

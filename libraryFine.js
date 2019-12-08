@@ -9,4 +9,4 @@ function libraryFine(d1, m1, y1, d2, m2, y2) {
   return 15 * (d1 - d2)
 }
 
-module.exports = libraryFine;
+module.exports = libraryFine

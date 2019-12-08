@@ -1,4 +1,4 @@
-const gridSearch = require('../gridSearch');
+const gridSearch = require('../gridSearch')
 
 test('A gridSearch test', () => {
   const grid = [
@@ -11,12 +11,12 @@ test('A gridSearch test', () => {
     '6473530293',
     '7053106601',
     '0834282956',
-    '4607924137'
+    '4607924137',
   ]
 
   const pattern = ['9505', '3845', '3530']
-  expect(gridSearch(grid, pattern)).toBe(true);
-});
+  expect(gridSearch(grid, pattern)).toBe(true)
+})
 
 test('Another gridSearch test', () => {
   const grid = [
@@ -34,12 +34,12 @@ test('Another gridSearch test', () => {
     '962410809534811',
     '445893523733475',
     '768705303214174',
-    '650629270887160'
+    '650629270887160',
   ]
 
   const pattern = ['99', '99']
-  expect(gridSearch(grid, pattern)).toBe(false);
-});
+  expect(gridSearch(grid, pattern)).toBe(false)
+})
 
 test('A gridSearch test where the pattern starts in the second occurrence of the first line', () => {
   const grid = [
@@ -52,10 +52,9 @@ test('A gridSearch test where the pattern starts in the second occurrence of the
     '6473530293',
     '7053106601',
     '0834282956',
-    '4607924137'
+    '4607924137',
   ]
 
   const pattern = ['5505', '3845', '3530']
-  expect(gridSearch(grid, pattern)).toBe(true);
-});
-
+  expect(gridSearch(grid, pattern)).toBe(true)
+})

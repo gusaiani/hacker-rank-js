@@ -4,7 +4,7 @@ function strangeAdvertising(days) {
   let cumulative = 2
 
   for (let day = 2; day <= days; day++) {
-    shared = liked * 3
+    const shared = liked * 3
     liked = Math.floor(shared / 2)
     cumulative += liked
   }
@@ -12,4 +12,4 @@ function strangeAdvertising(days) {
   return cumulative
 }
 
-module.exports = strangeAdvertising;
+module.exports = strangeAdvertising

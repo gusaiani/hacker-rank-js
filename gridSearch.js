@@ -1,6 +1,6 @@
 function gridSearch(grid, pattern) {
   for (let i = 0; i < grid.length; i++) {
-    patternFoundPosition = 0
+    let patternFoundPosition = 0
 
     while (patternFoundPosition > -1) {
       patternFoundPosition = grid[i].indexOf(pattern[0], patternFoundPosition)
@@ -19,10 +19,10 @@ function gridSearch(grid, pattern) {
 }
 
 function canCompletePattern(grid, pattern, i, startColumn) {
-  if ((grid.length - i - pattern.length) < 0) return false
+  if (grid.length - i - pattern.length < 0) return false
 
   for (let j = 1; j < pattern.length; j++) {
-    if ((grid[j+i]).indexOf(pattern[j], startColumn) != startColumn) {
+    if (grid[j + i].indexOf(pattern[j], startColumn) != startColumn) {
       return false
     }
   }
@@ -30,4 +30,4 @@ function canCompletePattern(grid, pattern, i, startColumn) {
   return true
 }
 
-module.exports = gridSearch;
+module.exports = gridSearch

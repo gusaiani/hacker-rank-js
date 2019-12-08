@@ -1,5 +1,5 @@
-const beautifulStrings = require('../beautifulStrings');
+const beautifulStrings = require('../beautifulStrings')
 
 test('BeautifulStrings of "abba"', () => {
-  expect(beautifulStrings("abba")).toEqual(4);
-});
+  expect(beautifulStrings('abba')).toEqual(4)
+})

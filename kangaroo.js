@@ -2,10 +2,10 @@
  * https://www.hackerrank.com/challenges/apple-and-orange/problem?h_r=next-challenge&h_v=zen
  */
 function kangaroo(start1, velocity1, start2, velocity2) {
-  let ahead, aheadVelocity, behind, behindVelocity;
+  let ahead, aheadVelocity, behind, behindVelocity
 
-  if ((start1 === start2) && (velocity1 === velocity2)) return true;
-  if ((velocity1 === velocity2)) return false
+  if (start1 === start2 && velocity1 === velocity2) return true
+  if (velocity1 === velocity2) return false
 
   if (start1 > start2) {
     ahead = start1
@@ -31,4 +31,4 @@ function kangaroo(start1, velocity1, start2, velocity2) {
   return false
 }
 
-module.exports = kangaroo;
+module.exports = kangaroo

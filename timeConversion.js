@@ -2,8 +2,8 @@
  * https://www.hackerrank.com/challenges/time-conversion/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
  */
 function timeConversion(time) {
-  if (time == "12:00:00AM") return "00:00:00";
-  if (time == "12:00:00PM") return "12:00:00";
+  if (time == '12:00:00AM') return '00:00:00'
+  if (time == '12:00:00PM') return '12:00:00'
 
   const suffix = time.slice(-2)
   const prefix = time.slice(0, -2)
@@ -22,4 +22,4 @@ function timeConversion(time) {
   return timeArray.join(':')
 }
 
-module.exports = timeConversion;
+module.exports = timeConversion

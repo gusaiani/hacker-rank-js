@@ -1,4 +1,4 @@
-const libraryFine = require('../libraryFine');
+const libraryFine = require('../libraryFine')
 
 test('Returned before due year', () => {
   expect(libraryFine(1, 1, 2014, 1, 1, 2015)).toEqual(0)
@@ -25,5 +25,5 @@ test('Returned same year same month at due day', () => {
 })
 
 test('Returned same year same month, two days late', () => {
-  expect(libraryFine(11, 6, 2015, 9, 6, 2015)).toEqual(30);
-});
+  expect(libraryFine(11, 6, 2015, 9, 6, 2015)).toEqual(30)
+})

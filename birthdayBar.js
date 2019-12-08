@@ -4,17 +4,20 @@
 function birthdayBar(squares, day, month) {
   var possibilityCount = 0
 
-  for (let i = 0; i <= (squares.length - month); i++) {
-    const newSquares = squares.slice(0);
+  for (let i = 0; i <= squares.length - month; i++) {
+    const newSquares = squares.slice(0)
     const segment = newSquares.splice(i, month)
 
-    const segmentSum = segment.reduce((acc, item) => { return acc + item }, 0)
+    const segmentSum = segment.reduce((acc, item) => {
+      return acc + item
+    }, 0)
 
-    if (segmentSum === day) { possibilityCount++; }
-
+    if (segmentSum === day) {
+      possibilityCount++
+    }
   }
 
-  return possibilityCount;
+  return possibilityCount
 }
 
-module.exports = birthdayBar;
+module.exports = birthdayBar

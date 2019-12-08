@@ -5,14 +5,14 @@ function sherlockValidString(str) {
 
 function booleanSherlockValidString(str) {
   let hashMap = {}
-  let uniqueCounts = []
+
   for (let char of str) {
     hashMap[char] = hashMap[char] ? hashMap[char] + 1 : 1
   }
 
   let countHashMap = {}
 
-  Object.keys(hashMap).forEach((char) => {
+  Object.keys(hashMap).forEach(char => {
     const num = hashMap[char]
 
     if (!countHashMap[num]) {
@@ -25,8 +25,7 @@ function booleanSherlockValidString(str) {
   })
 
   const countHashMapKeys = Object.keys(countHashMap)
-  const numberOfDifferentKeyCounts =
-    countHashMapKeys.length
+  const numberOfDifferentKeyCounts = countHashMapKeys.length
 
   if (numberOfDifferentKeyCounts < 2) {
     return true
@@ -42,10 +41,7 @@ function booleanSherlockValidString(str) {
     const count = countHashMapKeys[i]
     const countInt = parseInt(count)
 
-    if (
-      (countInt === 1)
-      && (countHashMap[count].length === 1)
-    ) {
+    if (countInt === 1 && countHashMap[count].length === 1) {
       return true
     }
 

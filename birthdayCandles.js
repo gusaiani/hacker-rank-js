@@ -4,22 +4,21 @@
 function birthdayCandles(arr) {
   const initial = {
     largest: 0,
-    count: 0
+    count: 0,
   }
 
   const final = arr.reduce((acc, item) => {
-
     if (item > acc.largest) {
-      acc.largest = item;
-      acc.count = 1;
+      acc.largest = item
+      acc.count = 1
     } else if (item == acc.largest) {
-      acc.count++;
+      acc.count++
     }
 
     return acc
-  }, initial);
+  }, initial)
 
   return final.count
 }
 
-module.exports = birthdayCandles;
+module.exports = birthdayCandles

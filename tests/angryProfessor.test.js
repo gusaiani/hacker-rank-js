@@ -1,4 +1,4 @@
-const angryProfessor = require('../angryProfessor');
+const angryProfessor = require('../angryProfessor')
 
 test('A angryProfessor test', () => {
   const string = `
@@ -8,5 +8,5 @@ test('A angryProfessor test', () => {
   4 2
   0 -1 2 1
   `
-  expect(angryProfessor(string)).toEqual('YES\nNO');
-});
+  expect(angryProfessor(string)).toEqual('YES\nNO')
+})
