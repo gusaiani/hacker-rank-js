@@ -8,4 +8,4 @@ function saveThePrisoner(prisoners, candies, startAt) {
   return a
 }
 
-module.exports = saveThePrisoner;
+module.exports = saveThePrisoner

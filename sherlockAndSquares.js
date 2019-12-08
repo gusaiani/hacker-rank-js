@@ -12,7 +12,7 @@ function sherlockAndSquares(init, final) {
     smallestSquare = Math.ceil(squareRootOfInit)
   }
 
-  while ((smallestSquare * smallestSquare) <= final) {
+  while (smallestSquare * smallestSquare <= final) {
     numberOfSquares++
     smallestSquare++
   }
@@ -20,4 +20,4 @@ function sherlockAndSquares(init, final) {
   return numberOfSquares
 }
 
-module.exports = sherlockAndSquares;
+module.exports = sherlockAndSquares

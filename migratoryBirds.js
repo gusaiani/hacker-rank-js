@@ -8,18 +8,18 @@ function migratoryBirds(arr) {
     hashSet[item] = !hashSet[item] ? 1 : hashSet[item] + 1
   }
 
-  Object.keys(hashSet).forEach((key) => {
+  Object.keys(hashSet).forEach(key => {
     if (hashSet[key] > maxBirds) {
       maxBirds = hashSet[key]
       bird = parseInt(key)
     }
 
-    if ((hashSet[key] == maxBirds) && (parseInt(key) < bird)) {
+    if (hashSet[key] == maxBirds && parseInt(key) < bird) {
       bird = parseInt(key)
     }
   })
 
-  return bird;
+  return bird
 }
 
-module.exports = migratoryBirds;
+module.exports = migratoryBirds

@@ -1,4 +1,4 @@
-const hourglasses = require('../hourglasses');
+const hourglasses = require('../hourglasses')
 
 test('A hourglasses test', () => {
   const arr = `
@@ -8,7 +8,10 @@ test('A hourglasses test', () => {
   0 0 2 4 4 0
   0 0 0 2 0 0
   0 0 1 2 4 0
-  `.trim().split(/\s+/).map(Number)
+  `
+    .trim()
+    .split(/\s+/)
+    .map(Number)
 
-  expect(hourglasses(arr)).toEqual(19);
-});
+  expect(hourglasses(arr)).toEqual(19)
+})

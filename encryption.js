@@ -23,4 +23,4 @@ function encryption(str) {
   return arrOfRows.join(' ')
 }
 
-module.exports = encryption;
+module.exports = encryption

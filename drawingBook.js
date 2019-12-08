@@ -18,7 +18,7 @@ function drawingBook(pages, pageToTurn) {
     }
   }
 
-  return (pagesToEnd < pagesFromStart) ? pagesToEnd : pagesFromStart
+  return pagesToEnd < pagesFromStart ? pagesToEnd : pagesFromStart
 }
 
-module.exports = drawingBook;
+module.exports = drawingBook

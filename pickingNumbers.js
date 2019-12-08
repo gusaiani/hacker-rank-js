@@ -1,7 +1,9 @@
 function pickingNumbers(arr) {
-  let maxSequence = 0;
+  let maxSequence = 0
 
-  arr.sort((a, b) => { return a - b })
+  arr.sort((a, b) => {
+    return a - b
+  })
 
   for (let i = 0; i < arr.length - 1; i++) {
     const tempArray = [arr[i]]
@@ -17,4 +19,4 @@ function pickingNumbers(arr) {
   return maxSequence
 }
 
-module.exports = pickingNumbers;
+module.exports = pickingNumbers

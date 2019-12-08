@@ -2,7 +2,7 @@
  * https://www.hackerrank.com/challenges/sock-merchant/problem
  */
 function matchingSocks(arr) {
-  let pairs = 0;
+  let pairs = 0
   let hashTable = {}
 
   for (let i = 0; i < arr.length; i++) {
@@ -17,4 +17,4 @@ function matchingSocks(arr) {
   return pairs
 }
 
-module.exports = matchingSocks;
+module.exports = matchingSocks

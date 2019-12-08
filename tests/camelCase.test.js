@@ -1,5 +1,5 @@
-const camelCase = require('../camelCase');
+const camelCase = require('../camelCase')
 
 test('A camelCase test', () => {
-  expect(camelCase("saveChangesInTheEditor")).toEqual(5);
-});
+  expect(camelCase('saveChangesInTheEditor')).toEqual(5)
+})

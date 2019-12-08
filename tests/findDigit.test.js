@@ -1,4 +1,4 @@
-const findDigit = require('../findDigit');
+const findDigit = require('../findDigit')
 
 test('A findDigit test', () => {
   const string = `
@@ -6,5 +6,5 @@ test('A findDigit test', () => {
   12
   1012
   `
-  expect(findDigit(string)).toEqual('2\n3');
-});
+  expect(findDigit(string)).toEqual('2\n3')
+})

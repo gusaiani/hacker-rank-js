@@ -8,17 +8,27 @@ function surface(rows) {
 
       // If this cell's height is > 0,
       // add 2 to surface (top and bottom)
-      if (height > 0) { result += 2 }
+      if (height > 0) {
+        result += 2
+      }
 
       // If this is first or last row,
       // add height to surface (sides)
-      if (i == 0 ) { result += height }
-      if (i == rows.length - 1) { result += height }
+      if (i == 0) {
+        result += height
+      }
+      if (i == rows.length - 1) {
+        result += height
+      }
 
       // If this is first or last column,
       // add height to surface (front and back)
-      if (j == 0) { result += height }
-      if (j == (rows[i].length - 1)) { result += height }
+      if (j == 0) {
+        result += height
+      }
+      if (j == rows[i].length - 1) {
+        result += height
+      }
 
       if (i < rows.length - 1) {
         result += Math.abs(height - rows[i + 1][j])
@@ -33,4 +43,4 @@ function surface(rows) {
   return result
 }
 
-module.exports = surface;
+module.exports = surface

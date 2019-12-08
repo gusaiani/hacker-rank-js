@@ -28,13 +28,13 @@ function appendAndDelete(str1, str2, moves) {
   let movesNecessary = 0
 
   for (let i = 0; i < smallestLength; i++) {
-    if(arr1[i] != arr2[i]) {
+    if (arr1[i] != arr2[i]) {
       movesNecessary = (smallestLength - i) * 2
       break
     }
   }
 
-  return (movesDueToLengthDifference + movesNecessary) <= moves
+  return movesDueToLengthDifference + movesNecessary <= moves
 }
 
-module.exports = appendAndDelete;
+module.exports = appendAndDelete

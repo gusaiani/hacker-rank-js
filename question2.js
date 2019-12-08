@@ -34,4 +34,4 @@ function findWord(arr) {
   return word.join('')
 }
 
-module.exports = findWord;
+module.exports = findWord

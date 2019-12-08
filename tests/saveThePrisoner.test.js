@@ -1,12 +1,12 @@
-const saveThePrisoner = require('../saveThePrisoner');
+const saveThePrisoner = require('../saveThePrisoner')
 
 test('A saveThePrisoner test', () => {
-  expect(saveThePrisoner(5, 2, 1)).toEqual(2);
-  expect(saveThePrisoner(5, 2, 2)).toEqual(3);
-  expect(saveThePrisoner(7, 19, 2)).toEqual(6);
-  expect(saveThePrisoner(3, 7, 3)).toEqual(3);
-  expect(saveThePrisoner(987208066, 992914997, 534359308)).toEqual(540066238);
-});
+  expect(saveThePrisoner(5, 2, 1)).toEqual(2)
+  expect(saveThePrisoner(5, 2, 2)).toEqual(3)
+  expect(saveThePrisoner(7, 19, 2)).toEqual(6)
+  expect(saveThePrisoner(3, 7, 3)).toEqual(3)
+  expect(saveThePrisoner(987208066, 992914997, 534359308)).toEqual(540066238)
+})
 
 const examples = `
 987208066 992914997 534359308
@@ -223,8 +223,11 @@ examplesArray.forEach((line, index) => {
   const candies = parseInt(argsArray[1])
   const startAt = parseInt(argsArray[2])
 
-  test(`A saveThePrisoner test with ${prisoners}, ${candies} and ${startAt} which should return ${answersArray[index]}`, () => {
-    expect(saveThePrisoner(prisoners, candies, startAt))
-      .toEqual(parseInt(answersArray[index]));
+  test(`A saveThePrisoner test with ${prisoners}, ${candies} and ${startAt} which should return ${
+    answersArray[index]
+  }`, () => {
+    expect(saveThePrisoner(prisoners, candies, startAt)).toEqual(
+      parseInt(answersArray[index]),
+    )
   })
-});
+})

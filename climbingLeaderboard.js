@@ -26,4 +26,4 @@ function rankScore(score, scores) {
   }
 }
 
-module.exports = climbingLeaderboard;
+module.exports = climbingLeaderboard

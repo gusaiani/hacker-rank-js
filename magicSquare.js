@@ -26,15 +26,15 @@ function magicSquare(arr) {
 
   return possibilities.reduce((cost, magicSquare) => {
     const flatSquare = [].concat(...magicSquare)
-    let tempCost = 0;
+    let tempCost = 0
 
     for (let i = 0; i < flatSquare.length; i++) {
-      tempCost += Math.abs(flatSquare[i] - flattenedArr[i]);
-      if (tempCost > cost) return cost;
+      tempCost += Math.abs(flatSquare[i] - flattenedArr[i])
+      if (tempCost > cost) return cost
     }
 
-    return tempCost;
+    return tempCost
   }, cost)
 }
 
-module.exports = magicSquare;
+module.exports = magicSquare

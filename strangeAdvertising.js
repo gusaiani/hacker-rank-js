@@ -12,4 +12,4 @@ function strangeAdvertising(days) {
   return cumulative
 }
 
-module.exports = strangeAdvertising;
+module.exports = strangeAdvertising

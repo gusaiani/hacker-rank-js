@@ -7,4 +7,4 @@ function catsAndMouse(x, y, z) {
   return 'Mouse C'
 }
 
-module.exports = catsAndMouse;
+module.exports = catsAndMouse

@@ -2,8 +2,9 @@
 function twoPluses(grid) {
   const hash = buildHash(grid)
   const pluses = compilePluses(hash)
-  const largestPlusesNotTouchingEachOther =
-    findLargestPlusesNotTouchingOneAnother(pluses)
+  const largestPlusesNotTouchingEachOther = findLargestPlusesNotTouchingOneAnother(
+    pluses,
+  )
 
   if (!largestPlusesNotTouchingEachOther) return 0
 
@@ -36,8 +37,7 @@ function compilePluses(hash) {
       secondKey = parseInt(secondKey)
 
       while (hasOneMoreUnitofDimension) {
-        pluses =
-          addPlusToList([firstKey, secondKey, unitOfDimension], pluses)
+        pluses = addPlusToList([firstKey, secondKey, unitOfDimension], pluses)
 
         if (checkUnitOfDimension(hash, firstKey, secondKey, unitOfDimension)) {
           unitOfDimension++
@@ -68,7 +68,6 @@ function addPlusToList(plus, pluses) {
     currentIndex++
   }
 
-
   if (indexToInject) {
     pluses.splice(indexToInject - 1, 0, plus).join()
   } else {
@@ -79,10 +78,12 @@ function addPlusToList(plus, pluses) {
 }
 
 function checkUnitOfDimension(hash, firstKey, secondKey, unit) {
-  return checkIfGood(hash, firstKey - unit, secondKey) &&
+  return (
+    checkIfGood(hash, firstKey - unit, secondKey) &&
     checkIfGood(hash, firstKey + unit, secondKey) &&
     checkIfGood(hash, firstKey, secondKey - unit) &&
     checkIfGood(hash, firstKey, secondKey + unit)
+  )
 }
 
 function checkIfGood(hash, firstKey, secondKey) {
@@ -95,13 +96,13 @@ function findLargestPlusesNotTouchingOneAnother(pluses) {
   for (let i = 0; i < pluses.length; i++) {
     const firstPlus = pluses[i]
     const firstPlusArea = convertDimensionToArea(firstPlus[2])
-    if (largestArea > (firstPlusArea * firstPlusArea)) {
+    if (largestArea > firstPlusArea * firstPlusArea) {
       continue
     }
     for (let j = i + 1; j < pluses.length; j++) {
       const doPlusesTouch = checkIfPlusesTouch(pluses[i], pluses[j])
       if (!doPlusesTouch) {
-          const area = calculateArea(pluses[i], pluses[j])
+        const area = calculateArea(pluses[i], pluses[j])
         if (area > largestArea) {
           largestArea = area
         }
@@ -120,22 +121,23 @@ function checkIfPlusesTouch(firstPlus, secondPlus) {
   const maxSide = Math.max(firstPlusSide, secondPlusSide)
 
   if (verticalCenterDistance === 0) {
-    return horizontalCenterDistance < (firstPlusSide + secondPlusSide)
+    return horizontalCenterDistance < firstPlusSide + secondPlusSide
   }
 
   if (horizontalCenterDistance === 0) {
-    return verticalCenterDistance < (firstPlusSide + secondPlusSide)
+    return verticalCenterDistance < firstPlusSide + secondPlusSide
   }
 
-  if (verticalCenterDistance > (firstPlusSide + secondPlusSide)) {
+  if (verticalCenterDistance > firstPlusSide + secondPlusSide) {
     return false
   }
 
-  if (horizontalCenterDistance > (firstPlusSide + secondPlusSide)) {
+  if (horizontalCenterDistance > firstPlusSide + secondPlusSide) {
     return false
   }
 
-  if (verticalCenterDistance >= maxSide && horizontalCenterDistance >= maxSide) return false
+  if (verticalCenterDistance >= maxSide && horizontalCenterDistance >= maxSide)
+    return false
 
   return true
 }
@@ -152,7 +154,7 @@ function calculateArea(firstPlus, secondPlus) {
 
 function convertDimensionToArea(dimension) {
   if (dimension === 1) return 1
-  return ((dimension - 1) * 4) + 1
+  return (dimension - 1) * 4 + 1
 }
 
 module.exports = twoPluses
