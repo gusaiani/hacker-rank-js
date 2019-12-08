@@ -37,6 +37,7 @@ function nonDivisibleSubset(divisor, arr) {
   return total / 2 + extra
 }
 
+/*eslint-disable */
 function inefficientNonDivisibleSubset(divisor, arr) {
   let pairs = []
   let longestPair = 0
@@ -84,5 +85,6 @@ function inefficientNonDivisibleSubset(divisor, arr) {
 
   return longestPair
 }
+/*eslint-enable */
 
 module.exports = nonDivisibleSubset

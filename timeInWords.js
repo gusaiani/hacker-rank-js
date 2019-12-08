@@ -22,7 +22,7 @@ function timeInWords(h, m) {
     '20': 'twenty',
   }
 
-  if (m == 0) return `${expression[h]} o\' clock`
+  if (m == 0) return `${expression[h]} o' clock`
   if (m == 15) return `quarter past ${expression[h]}`
   if (m == 45) return `quarter to ${expression[h + 1]}`
   if (m == 30) return `half past ${expression[h]}`

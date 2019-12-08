@@ -11,7 +11,7 @@ function getChange(money, price) {
   const change = money * 100 - price * 100
   const coins = [100, 50, 25, 10, 5, 1]
 
-  const {finalChange, changeCoins} = coins.reduce(
+  const {changeCoins} = coins.reduce(
     (acc, coinType) => {
       const newCoins = Math.floor(acc.change / coinType)
       const remainingChange = acc.change % coinType

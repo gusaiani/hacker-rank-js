@@ -5,7 +5,7 @@ function sherlockValidString(str) {
 
 function booleanSherlockValidString(str) {
   let hashMap = {}
-  let uniqueCounts = []
+
   for (let char of str) {
     hashMap[char] = hashMap[char] ? hashMap[char] + 1 : 1
   }

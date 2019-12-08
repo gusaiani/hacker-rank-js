@@ -18,7 +18,7 @@ function findWord(arr) {
 
   while (arr.length) {
     const item = arr[0]
-    itemArray = item.split('>')
+    const itemArray = item.split('>')
     const isFirstLetterInWord = word.indexOf(itemArray[0]) > -1
     const isSecondLetterInWord = word.indexOf(itemArray[1]) > -1
 

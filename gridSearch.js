@@ -1,6 +1,6 @@
 function gridSearch(grid, pattern) {
   for (let i = 0; i < grid.length; i++) {
-    patternFoundPosition = 0
+    let patternFoundPosition = 0
 
     while (patternFoundPosition > -1) {
       patternFoundPosition = grid[i].indexOf(pattern[0], patternFoundPosition)
