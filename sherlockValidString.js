@@ -24,8 +24,9 @@ function booleanSherlockValidString(str) {
     }
   })
 
+  const countHashMapKeys = Object.keys(countHashMap)
   const numberOfDifferentKeyCounts =
-    Object.keys(countHashMap).length
+    countHashMapKeys.length
 
   if (numberOfDifferentKeyCounts < 2) {
     return true
@@ -35,7 +36,6 @@ function booleanSherlockValidString(str) {
     return false
   }
 
-  const countHashMapKeys = Object.keys(countHashMap)
   let countsWithMultipleChars = 0
 
   for (let i = 0; i < countHashMapKeys.length; i++) {
