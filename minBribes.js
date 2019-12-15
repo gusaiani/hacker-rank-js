@@ -12,16 +12,15 @@ function minBribes(arr) {
     }
 
     for (let j = i; j < arr.length - 1; j++) {
-      if (arr[j + 1] < arr[j]) {
-        const temp = arr[j]
-        arr[j] = arr[j + 1]
-        arr[j + 1] = temp
+      const thisNum = arr[j]
+      const nextNum = arr[j + 1]
+      if (nextNum < thisNum) {
+        arr[j] = nextNum
+        arr[j + 1] = thisNum
 
         bribes++
-        hashTable[arr[j + 1]] = hashTable[arr[j + 1]]
-          ? hashTable[arr[j + 1]] + 1
-          : 1
-        if (hashTable[arr[j + 1]] > MAX_BRIBES) return 'Too chaotic'
+        hashTable[thisNum] = hashTable[thisNum] ? hashTable[thisNum] + 1 : 1
+        if (hashTable[thisNum] > MAX_BRIBES) return 'Too chaotic'
         break
       }
     }
