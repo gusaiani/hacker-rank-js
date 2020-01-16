@@ -1,23 +1,54 @@
 function addToTree(tree, entry, id) {
-  const parentHashTable = makeParentHashTable(tree)
-  const idPath = buildIdPath(parentHashTable, id)
+  const {parentHashTable, idPath, childrenOrder} = parseTree(tree, id)
   const maxId = getMaxId(parentHashTable)
-  entry['parent_id'] = idPath[idPath.length - 1]
-  entry['children'] = []
-  entry['id'] = maxId + 1
-  const childrenOrder = buildChildrenOrder(tree, idPath)
-  const evalCommand = buildEvalCommand(childrenOrder)
+  completeNewEntry(entry, idPath, maxId)
+  const evalCommand = buildEvalAddCommand(childrenOrder)
   eval(evalCommand)
   return tree
 }
 
-function buildEvalCommand(childrenOrder) {
+function deleteFromTree(tree, id) {
+  const {childrenOrder} = parseTree(tree, id)
+
+  // Don't delete the root
+  if (!childrenOrder.length) return tree
+
+  const evalCommand = buildEvalDeleteCommand(childrenOrder)
+  eval(evalCommand)
+  return tree
+}
+
+function parseTree(tree, id) {
+  const parentHashTable = makeParentHashTable(tree)
+  const idPath = buildIdPath(parentHashTable, id)
+  const childrenOrder = buildChildrenOrder(tree, Array.from(idPath))
+  return {parentHashTable, idPath, childrenOrder}
+}
+
+function completeNewEntry(entry, idPath, maxId) {
+  entry.parent_id = idPath[idPath.length - 1]
+  entry.children = []
+  entry.id = maxId + 1
+}
+
+function buildEvalAddCommand(childrenOrder) {
   if (!childrenOrder.length) {
     return "tree['children'].push(entry)"
   }
 
   const joinedChildrenOrder = childrenOrder.join("]['children'][")
   return `tree['children'][${joinedChildrenOrder}]['children'].push(entry)`
+}
+
+function buildEvalDeleteCommand(childrenOrder) {
+  if (childrenOrder.length === 1) {
+    return `tree['children'].splice(${childrenOrder[0]}, 1)`
+  } else {
+    const indexToSplice = childrenOrder.pop()
+
+    const joinedChildrenOrder = childrenOrder.join("]['children'][")
+    return `tree['children'][${joinedChildrenOrder}]['children'].splice(${indexToSplice}, 1)`
+  }
 }
 
 function makeParentHashTable(branch, hashTable = {}) {
@@ -72,4 +103,4 @@ function buildChildrenOrder(tree, idPath) {
   return order
 }
 
-module.exports = addToTree
+module.exports = {addToTree, deleteFromTree}
