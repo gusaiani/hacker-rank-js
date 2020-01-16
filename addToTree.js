@@ -6,7 +6,6 @@ function addToTree(tree, entry, id) {
   entry['children'] = []
   entry['id'] = maxId + 1
   const childrenOrder = buildChildrenOrder(tree, idPath)
-  // tree['children'][1]['children']['1']
   const evalCommand = buildEvalCommand(childrenOrder)
   eval(evalCommand)
   return tree
@@ -27,6 +26,7 @@ function makeParentHashTable(branch, hashTable = {}) {
   for (var child of branch.children) {
     makeParentHashTable(child, hashTable)
   }
+
   return hashTable
 }
 
@@ -57,7 +57,6 @@ function buildChildrenOrder(tree, idPath) {
   idPath.shift()
   let id = idPath.shift()
   let branches = tree.children
-  // console.log({tree, branches, id, idPath})
 
   while (id) {
     for (let i = 0; i < branches.length; i++) {
