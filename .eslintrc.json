@@ -1,6 +1,6 @@
 {
   "parserOptions": {
-    "ecmaVersion": 2019,
+    "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -17,4 +17,3 @@
     "jest/globals": true
   }
 }
-

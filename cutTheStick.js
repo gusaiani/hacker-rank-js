@@ -5,7 +5,7 @@ function cutTheStick(arr) {
       arr[item] = arr[item] ? arr[item] + 1 : 1
       return {arr, count: count + 1}
     },
-    {arr: new Array(), count: 0},
+    {arr: new Array(), count: 0}
   )
 
   const tally = reduction.arr

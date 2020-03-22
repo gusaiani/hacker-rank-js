@@ -3,7 +3,7 @@ function twoPluses(grid) {
   const hash = buildHash(grid)
   const pluses = compilePluses(hash)
   const largestPlusesNotTouchingEachOther = findLargestPlusesNotTouchingOneAnother(
-    pluses,
+    pluses
   )
 
   if (!largestPlusesNotTouchingEachOther) return 0

@@ -14,7 +14,7 @@ function inverse(num) {
     (num + '')
       .split('')
       .reverse()
-      .join(''),
+      .join('')
   )
 }
 

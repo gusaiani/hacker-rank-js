@@ -19,7 +19,7 @@ function repeatedStrings(string, chars) {
         }
         return [inRem, inStrLen]
       },
-      [0, 0],
+      [0, 0]
     )
 
   return div * lettersToFindInStringLength + lettersToFindInRem
