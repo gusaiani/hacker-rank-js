@@ -20,7 +20,7 @@ function getChange(money, price) {
 
       return acc
     },
-    {change, changeCoins: []},
+    {change, changeCoins: []}
   )
 
   return changeCoins.reverse()

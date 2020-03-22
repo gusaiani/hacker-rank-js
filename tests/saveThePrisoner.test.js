@@ -225,7 +225,7 @@ examplesArray.forEach((line, index) => {
 
   test(`A saveThePrisoner test with ${prisoners}, ${candies} and ${startAt} which should return ${answersArray[index]}`, () => {
     expect(saveThePrisoner(prisoners, candies, startAt)).toEqual(
-      parseInt(answersArray[index]),
+      parseInt(answersArray[index])
     )
   })
 })

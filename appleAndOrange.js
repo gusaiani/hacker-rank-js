@@ -7,14 +7,14 @@ function countApplesAndOranges(
   appleTree,
   orangeTree,
   apples,
-  oranges,
+  oranges
 ) {
   const applesOnHouse = fruitsOnHouse(houseStart, houseEnd, appleTree, apples)
   const orangesOnHouse = fruitsOnHouse(
     houseStart,
     houseEnd,
     orangeTree,
-    oranges,
+    oranges
   )
   return [applesOnHouse, orangesOnHouse]
 }
