@@ -66,26 +66,6 @@ test('Should return 5', () => {
   expect(twoPluses(grid)).toEqual(5)
 })
 
-test.skip('Should return 221', () => {
-  const grid = [
-    'GGBBGBBGBBG',
-    'GGBBGBBGBBG',
-    'GGGGGGGGGGG',
-    'GGBBGBBGBBG',
-    'GGGGGGGGGGG',
-    'GGBBGBBGBBG',
-    'GGBBGBBGBBG',
-    'GGGGGGGGGGG',
-    'GGBBGBBGBBG',
-    'GGGGGGGGGGG',
-    'GGBBGBBGBBG',
-    'GGBBGBBGBBG',
-    'GGBBGBBGBBG',
-  ]
-
-  expect(twoPluses(grid)).toEqual(221)
-})
-
 test('Should return 45', () => {
   const grid = [
     'GGGGGGGGGG',
@@ -100,36 +80,4 @@ test('Should return 45', () => {
   ]
 
   expect(twoPluses(grid)).toEqual(45)
-})
-
-test.skip('Should return 85', () => {
-  const grid = [
-    'BBBBBGGBGG',
-    'GGGGGGGGGG',
-    'GGGGGGGGGG',
-    'BBBBBGGBGG',
-    'BBBBBGGBGG',
-    'GGGGGGGGGG',
-    'BBBBBGGBGG',
-    'GGGGGGGGGG',
-    'BBBBBGGBGG',
-    'GGGGGGGGGG',
-  ]
-
-  expect(twoPluses(grid)).toEqual(85)
-})
-
-test('Another one that should return 81', () => {
-  const grid = [
-    'GGGGGGGG',
-    'GBGBGGBG',
-    'GBGBGGBG',
-    'GGGGGGGG',
-    'GBGBGGBG',
-    'GGGGGGGG',
-    'GBGBGGBG',
-    'GGGGGGGG',
-  ]
-
-  expect(twoPluses(grid)).toEqual(81)
 })
